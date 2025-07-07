@@ -52,6 +52,7 @@ main {
 .screen--active { display: block; }
 
 /* New stats container */
+/* Stats grid above tools */
 .stats-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
