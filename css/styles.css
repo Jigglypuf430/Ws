@@ -22,9 +22,10 @@ body {
 
 header {
   background-color: var(--primary-red);
-  padding: 1rem;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
 }
 
 .logo-container {
@@ -37,19 +38,34 @@ header {
   height: 24px;
 }
 
+.account-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.account-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
 .tools-container {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 3rem 1rem 1rem; /* push tools lower */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .tool-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
@@ -60,11 +76,11 @@ header {
 }
 
 .tool-card.inactive {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* Account Details Screen */
+/* Account Details */
 .account-screen {
   display: none;
   flex: 1;
@@ -100,13 +116,13 @@ header {
 
 .account-details p {
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
 }
 
 @media (max-width: 600px) {
   .tool-card, .account-details {
-    font-size: 1rem;
-    padding: 0.8rem;
+    padding: 1rem;
+    font-size: 1.1rem;
   }
 }

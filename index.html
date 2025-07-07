@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Secure Banking</title>
 
-  <!-- iOS standalone web app -->
+  <!-- iOS standalone -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="SecureBank">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- PWA manifest for Android/modern browsers -->
+  <!-- PWA manifest -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#e60022">
 
@@ -25,16 +25,19 @@
     <div class="logo-container">
       <img src="logo.png" alt="Brand Logo">
     </div>
+    <button id="accountBtn" type="button" class="account-icon" aria-label="Show account details">
+      <!-- user/person icon SVG -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+    </button>
   </header>
 
   <!-- Tools Screen -->
   <main id="tools-screen" class="tools-container active">
-    <div id="accountsCard" class="tool-card active">Accounts</div>
+    <div class="tool-card">Accounts</div>
     <div class="tool-card inactive">Payments</div>
     <div class="tool-card inactive">Transfers</div>
-    <div class="tool-card inactive">Statements</div>
-    <div class="tool-card inactive">Settings</div>
-    <div class="tool-card inactive">Support</div>
   </main>
 
   <!-- Account Details Screen -->
