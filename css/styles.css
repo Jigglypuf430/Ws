@@ -28,7 +28,7 @@ body {
   padding: 0.75rem 1rem;
 }
 
-.header__logo img {
+.logo {
   height: 32px;
 }
 
@@ -52,7 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 4rem 1rem 1rem;  /* push tools lower on screen */
+  padding: 4rem 1rem 1rem;
 }
 
 .tool-card {
@@ -100,16 +100,16 @@ body {
 
 .account-details p {
   margin-bottom: 0.5rem;
-  font-size: 1rem;
   color: #555;
 }
 
 @media (max-width: 600px) {
-  .tool-card, .account-details {
+  .tool-card,
+  .account-details {
     padding: 1rem;
     font-size: 1.1rem;
   }
-  .header__logo img {
+  .logo {
     height: 28px;
   }
 }

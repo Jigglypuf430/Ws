@@ -15,16 +15,15 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#e60022">
 
-  <!-- Styles & Script -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
-  <script defer src="js/app.js"></script>
 </head>
 <body>
   <header class="header">
     <div class="header__logo">
-      <img src="logo.png" alt="SecureBank Logo">
+      <img src="logo.png" alt="SecureBank Logo" class="logo">
     </div>
-    <button id="accountBtn" class="header__account-btn" aria-label="Account Details">
+    <button id="openAccount" class="header__account-btn" aria-label="Account Details">
       <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
         <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
       </svg>
@@ -33,9 +32,9 @@
 
   <main>
     <!-- Tools Screen -->
-    <section id="tools" class="screen screen--active" aria-label="Main tools">
+    <section id="tools" class="screen screen--active">
       <div class="tools">
-        <button class="tool-card" id="toolAccounts">Accounts</button>
+        <button id="btnAccounts" class="tool-card">Accounts</button>
         <button class="tool-card tool-card--inactive">Payments</button>
         <button class="tool-card tool-card--inactive">Transfers</button>
       </div>
@@ -52,5 +51,15 @@
       </div>
     </section>
   </main>
+
+  <!-- JS -->
+  <script defer src="js/app.js"></script>
+  <!-- Service Worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(err => console.error('SW error:', err));
+    }
+  </script>
 </body>
 </html>
