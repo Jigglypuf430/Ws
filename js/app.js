@@ -1,7 +1,21 @@
-const btn     = document.getElementById('accessBtn');
-const balance = document.getElementById('balanceInfo');
-
-btn.addEventListener('click', () => {
-  btn.style.display     = 'none';
-  balance.style.display = 'block';
-});
+// manifest.json
+{
+  "name": "Secure Banking",
+  "short_name": "SecureBank",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#e60022",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
