@@ -1,41 +1,27 @@
 :root {
-  --header-height: 64px;
-  --nav-height: 56px;
   --brand-red: #e60022;
   --bg: #f5f5f5;
   --text: #333;
   --card-bg: #fff;
-  --dark-bg: #121212;
-  --dark-text: #eee;
 }
 
+* { box-sizing: border-box; margin:0; padding:0 }
+
 body {
-  margin: 0;
-  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
-body.dark {
-  background: var(--dark-bg);
-  color: var(--dark-text);
-}
 
 .header {
-  position: fixed;
-  top: env(safe-area-inset-top);
-  left: 0;
-  right: 0;
-  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--brand-red);
-  padding: 0 1rem;
-  z-index: 1000;
+  padding: 1rem;
 }
 
 .logo-container {
@@ -61,100 +47,70 @@ body.dark {
 
 main {
   flex: 1;
-  margin-top: calc(var(--header-height) + env(safe-area-inset-top));
-  margin-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+  padding: 1rem;
+  margin-top: 0.5rem;
   overflow-y: auto;
 }
 
-.screen {
-  display: none;
-}
-.screen--active {
-  display: block;
-}
+.screen { display: none; }
+.screen--active { display: block; }
 
 .tools {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
+  gap: 1.25rem;
 }
 
 .tool-card {
   background: var(--card-bg);
   border: none;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: 1.25rem;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
 }
-.tool-card:active {
-  transform: scale(0.98);
-}
-.tool-card--inactive {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+.tool-card:active { transform: scale(0.98); }
+.tool-card--inactive { opacity:0.6; cursor:not-allowed; }
 
 .back-btn {
   background: none;
   border: none;
   color: var(--brand-red);
   font-size: 1rem;
-  margin: 1rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
 .account-details {
   background: var(--card-bg);
-  margin: 0 1rem;
+  margin: 0;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.account-details h2 {
-  margin-bottom: 0.75rem;
-  color: var(--brand-red);
-}
-.account-details p {
-  margin-bottom: 0.5rem;
-  color: #555;
-}
+.account-details h2 { color: var(--brand-red); margin-bottom: 0.75rem; }
+.account-details p { margin-bottom: 0.5rem; }
 
 .bottom-nav {
-  position: fixed;
-  bottom: env(safe-area-inset-bottom);
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
   display: flex;
   border-top: 1px solid #ccc;
   background: #fff;
-  z-index: 1000;
 }
-
 .nav-btn {
   flex: 1;
   border: none;
   background: none;
   font-size: 1rem;
   color: #555;
+  padding: 0.75rem;
   cursor: pointer;
 }
-.nav-btn.active {
-  color: var(--brand-red);
-  font-weight: bold;
-}
+.nav-btn.active { color: var(--brand-red); font-weight: bold; }
 
-@media (max-width: 600px) {
-  .tool-card, .account-details {
-    padding: 1.5rem;
-    font-size: 1.1rem;
-  }
-  .logo {
-    height: 28px;
-  }
+@media(max-width:600px) {
+  .logo { height: 28px; }
+  .tool-card, .account-details { padding:1rem; font-size:1.1rem; }
 }
