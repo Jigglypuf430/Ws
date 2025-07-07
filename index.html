@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Secure Banking</title>
 
-  <!-- iOS standalone -->
+  <!-- Standalone PWA -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="SecureBank">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- PWA manifest -->
+  <!-- Manifest -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#e60022">
 
-  <!-- Stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,7 +25,11 @@
       <img src="logo.png" alt="SecureBank Logo" class="logo">
     </div>
     <div class="header-controls">
-      <button id="darkModeBtn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+      <button id="supportBtn" class="icon-btn" aria-label="Customer Support">
+        <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
+          <path d="M4 4h16v12H5.17L4 17.17V4zm2 2v8h12V6H6z"/>
+        </svg>
+      </button>
       <button id="openAccount" class="icon-btn" aria-label="Account Details">
         <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
           <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
@@ -33,38 +38,36 @@
     </div>
   </header>
 
-<main>
-  <!-- Stats Container -->
-  <section id="tools" class="screen screen--active">
-    <div class="stats-container">
-      <div class="stat-card">
-        Cash Flow<br><strong>$5,234</strong>
+  <main>
+    <!-- Tools & Stats -->
+    <section id="tools" class="screen screen--active">
+      <div class="stats-container">
+        <div class="stat-card">
+          Cash Flow<br><strong>$5,234</strong>
+        </div>
+        <div class="stat-card">
+          Monthly Budget<br><strong>$3,000</strong>
+        </div>
       </div>
-      <div class="stat-card">
-        Monthly Budget<br><strong>$3,000</strong>
+      <div class="tools">
+        <button id="btnAccounts" class="tool-card">Accounts</button>
+        <button class="tool-card tool-card--inactive">Payments</button>
+        <button class="tool-card tool-card--inactive">Transfers</button>
       </div>
-    </div>
+    </section>
 
-    <!-- Tools Screen -->
-    <div class="tools">
-      <button id="btnAccounts" class="tool-card">Accounts</button>
-      <button class="tool-card tool-card--inactive">Payments</button>
-      <button class="tool-card tool-card--inactive">Transfers</button>
-    </div>
-  </section>
-
-  <!-- Account Details Screen (unchanged) -->
-  <section id="account" class="screen" aria-hidden="true">
-    <button id="backBtn" class="back-btn">← Back</button>
-    <div class="account-details">
-      <h2>Jordan Saunders</h2>
-      <p><strong>Account Number:</strong> 52960212</p>
-      <p><strong>Account Type:</strong> Checking</p>
-      <p><strong>Email:</strong> jordysau07@gmail.com</p>
-    </div>
-  </section>
-</main>
-
+    <!-- Account Details -->
+    <section id="account" class="screen" aria-hidden="true">
+      <button id="backBtn" class="back-btn" aria-label="Back to tools">← Back</button>
+      <div class="account-details">
+        <h2>Jordan Smith</h2>
+        <p><strong>Balance:</strong> $5,234.00</p>
+        <p><strong>Account Number:</strong> 12345678</p>
+        <p><strong>Account Type:</strong> Checking</p>
+        <p><strong>Email:</strong> jordan@example.com</p>
+      </div>
+    </section>
+  </main>
 
   <!-- Bottom Navigation -->
   <nav class="bottom-nav">
@@ -73,11 +76,11 @@
     <button class="nav-btn" data-screen="transfers">Transfers</button>
   </nav>
 
-  <!-- JS -->
+  <!-- Scripts -->
   <script defer src="js/app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(err => console.error(err));
+      navigator.serviceWorker.register('/sw.js').catch(console.error);
     }
   </script>
 </body>
