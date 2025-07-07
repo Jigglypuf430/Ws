@@ -3,6 +3,13 @@
   --bg: #f5f5f5;
   --text: #333;
   --card-bg: #fff;
+  --dark-bg: #121212;
+  --dark-text: #eee;
+}
+
+body.dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
 }
 
 * {
@@ -28,13 +35,26 @@ body {
   padding: 0.75rem 1rem;
 }
 
+.logo-container {
+  background: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+}
+
 .logo {
   height: 32px;
 }
 
-.header__account-btn {
+.header-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.icon-btn {
   background: none;
   border: none;
+  font-size: 1.5rem;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -101,6 +121,27 @@ body {
 .account-details p {
   margin-bottom: 0.5rem;
   color: #555;
+}
+
+.bottom-nav {
+  display: flex;
+  border-top: 1px solid #ccc;
+  background: #fff;
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  color: var(--brand-red);
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
