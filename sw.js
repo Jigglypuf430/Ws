@@ -1,18 +1,56 @@
 // sw.js
-const CACHE_NAME = 'secure-bank-v2';  // <- bumped from v1 to v2
+const CACHE_NAME = 'secure-bank-v2';
 const ASSETS = [
-  '/', '/index.html', '/css/styles.css', '/js/app.js',
-  '/logo.png', '/apple-touch-icon.png', '/manifest.json',
-  '/icon-192.png', '/icon-512.png'
+  '/css/styles.css',
+  '/js/app.js',
+  '/logo.png',
+  '/apple-touch-icon.png',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png'
 ];
-self.addEventListener('install', e => 
-  e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()))
+
+self.addEventListener('install', e =>
+  e.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting())
+  )
 );
-self.addEventListener('activate', e => 
-  e.waitUntil(caches.keys().then(keys => 
-    Promise.all(keys.filter(k => k!==CACHE_NAME).map(k=>caches.delete(k)))
-  ).then(()=>self.clients.claim()))
+
+self.addEventListener('activate', e =>
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      )
+    ).then(() => self.clients.claim())
+  )
 );
-self.addEventListener('fetch', e => 
-  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))
-);
+
+self.addEventListener('fetch', event => {
+  // For navigation requests (i.e. the “app shell”), always try network first
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then(resp => {
+          // update the shell in cache for next time
+          const copy = resp.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          return resp;
+        })
+        .catch(() =>
+          // if offline, fall back to cached index.html
+          caches.match('/index.html')
+        )
+    );
+    return;
+  }
+
+  // For other requests, do cache-first
+  event.respondWith(
+    caches.match(event.request).then(cached =>
+      cached || fetch(event.request)
+    )
+  );
+});
