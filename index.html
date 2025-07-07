@@ -20,51 +20,37 @@
   <script defer src="js/app.js"></script>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Brand Logo">
+  <header class="header">
+    <div class="header__logo">
+      <img src="logo.png" alt="SecureBank Logo">
     </div>
-    <div class="header-controls">
-      <button id="darkModeBtn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
-      <button id="accountBtn" class="icon-btn" aria-label="Show account details">
-        <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-      </button>
-    </div>
+    <button id="accountBtn" class="header__account-btn" aria-label="Account Details">
+      <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+    </button>
   </header>
 
-  <!-- Tools Screen -->
-  <main id="tools-screen" class="screen active">
-    <div id="tools-skeleton" class="skeleton-container">
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-    </div>
-    <div id="tools-content" class="tools-container">
-      <div class="tool-card">Accounts</div>
-      <div class="tool-card inactive">Payments</div>
-      <div class="tool-card inactive">Transfers</div>
-    </div>
+  <main>
+    <!-- Tools Screen -->
+    <section id="tools" class="screen screen--active" aria-label="Main tools">
+      <div class="tools">
+        <button class="tool-card" id="toolAccounts">Accounts</button>
+        <button class="tool-card tool-card--inactive">Payments</button>
+        <button class="tool-card tool-card--inactive">Transfers</button>
+      </div>
+    </section>
+
+    <!-- Account Details Screen -->
+    <section id="account" class="screen" aria-hidden="true">
+      <button id="backBtn" class="back-btn" aria-label="Back to tools">← Back</button>
+      <div class="account-details">
+        <h2>Jordan Smith</h2>
+        <p><strong>Account Number:</strong> 12345678</p>
+        <p><strong>Account Type:</strong> Checking</p>
+        <p><strong>Email:</strong> jordan@example.com</p>
+      </div>
+    </section>
   </main>
-
-  <!-- Account Details Screen -->
-  <main id="account-screen" class="screen">
-    <button type="button" id="backBtn" class="back-button">← Back</button>
-    <div class="account-details">
-      <h2>Jordan Smith</h2>
-      <p><strong>Account Number:</strong> 12345678</p>
-      <p><strong>Account Type:</strong> Checking</p>
-      <p><strong>Email:</strong> jordan@example.com</p>
-    </div>
-  </main>
-
-  <!-- Quick Action FAB -->
-  <button id="quick-action" class="fab" aria-label="Quick Action">+</button>
-
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" data-screen="tools-screen">Accounts</button>
-    <button class="nav-btn" data-screen="payments">Payments</button>
-    <button class="nav-btn" data-screen="transfers">Transfers</button>
-  </nav>
 </body>
 </html>
