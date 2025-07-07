@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Banking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        #balance {
+            font-size: 1.5em;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .transaction {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        #history {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Banking App</h1>
+    <div id="balance">Balance: $<span id="balance-amount">1000.00</span></div>
+
+    <h3>Transaction History:</h3>
+    <div id="history">
+        <div class="transaction">Initial Deposit: +$1000.00</div>
+    </div>
+
+    <h3>Send Money</h3>
+    <form id="transfer-form">
+        <input type="text" id="recipient" placeholder="Recipient" required>
+        <input type="number" id="amount" placeholder="Amount" required min="0.01" step="0.01">
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        let balance = 1000.00;
+        const balanceEl = document.getElementById('balance-amount');
+        const historyEl = document.getElementById('history');
+
+        document.getElementById('transfer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const recipient = document.getElementById('recipient').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+
+            if (amount <= 0 || isNaN(amount)) {
+                alert('Enter a valid amount.');
+                return;
+            }
+
+            if (amount > balance) {
+                alert('Insufficient funds.');
+                return;
+            }
+
+            balance -= amount;
+            balanceEl.textContent = balance.toFixed(2);
+
+            const transaction = document.createElement('div');
+            transaction.className = 'transaction';
+            transaction.textContent = `Sent $${amount.toFixed(2)} to ${recipient}`;
+
+            historyEl.prepend(transaction);
+
+            document.getElementById('recipient').value = '';
+            document.getElementById('amount').value = '';
+        });
+    </script>
+</body>
+</html>
