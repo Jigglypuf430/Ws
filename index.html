@@ -1,16 +1,38 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile Banking</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Secure Banking</title>
+
+  <!-- iOS standalone web app -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SecureBank">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Styles & Script -->
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/app.js"></script>
 </head>
-<body>
 
+<body>
   <header>
-    <img src="logo.png" alt="Brand Logo">
+    <div class="logo-container">
+      <img src="logo.png" alt="Brand Logo">
+    </div>
+    <div class="profile-container">
+      <button type="button" id="profileBtn" aria-label="Open profile menu">
+        <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </button>
+      <ul id="profileMenu" class="profile-menu" aria-label="Profile menu">
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
   </header>
 
   <h1>Welcome Jordan</h1>
@@ -26,6 +48,5 @@
   <footer class="footer">
     &copy; 2025 Secure Banking Pty Ltd
   </footer>
-
 </body>
 </html>
