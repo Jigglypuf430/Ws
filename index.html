@@ -1,135 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Banking</title>
-    <style>
-        :root {
-            --primary-red: #e60022;
-            --background: #f5f5f5;
-            --text-dark: #333;
-            --input-border: #ccc;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--background);
-            color: var(--text-dark);
-        }
-
-        header {
-            background-color: var(--primary-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        header img {
-            height: 35px;
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--primary-red);
-            margin: 1.5rem 0 0.5rem;
-            font-size: 1.8rem;
-        }
-
-        .greeting {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        .container {
-            background: #fff;
-            margin: 1rem auto;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 400px;
-        }
-
-        .input-group {
-            margin-bottom: 1.2rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            font-size: 1rem;
-            background: #fff;
-        }
-
-        button {
-            width: 100%;
-            padding: 0.9rem;
-            background-color: var(--primary-red);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        button:hover {
-            background-color: #c5001d;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #777;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                margin: 1rem;
-                padding: 1rem;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Banking</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/app.js"></script>
 </head>
 <body>
 
-<header>
+  <header>
     <img src="logo.png" alt="Brand Logo">
-</header>
+  </header>
 
-<h1>Bank Login</h1>
-<p class="greeting">Welcome Jordan</p>
+  <h1>Welcome Jordan</h1>
+  <p class="greeting">Your banking simplified</p>
 
-<div class="container">
-    <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
+  <main class="container">
+    <button type="button" id="accessBtn">Tap to Access</button>
+    <div aria-live="polite" class="balance" id="balanceInfo">
+      Balance: $12,547.89
     </div>
+  </main>
 
-    <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
-    </div>
-
-    <button>Log In</button>
-</div>
-
-<div class="footer">
+  <footer class="footer">
     &copy; 2025 Secure Banking Pty Ltd
-</div>
+  </footer>
 
 </body>
 </html>
-
