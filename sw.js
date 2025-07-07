@@ -1,11 +1,10 @@
 // sw.js
-const CACHE_NAME = 'secure-bank-v1';
+const CACHE_NAME = 'secure-bank-v2';  // <- bumped from v1 to v2
 const ASSETS = [
   '/', '/index.html', '/css/styles.css', '/js/app.js',
   '/logo.png', '/apple-touch-icon.png', '/manifest.json',
   '/icon-192.png', '/icon-512.png'
 ];
-
 self.addEventListener('install', e => 
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()))
 );
