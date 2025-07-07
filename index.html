@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Secure Banking</title>
 
   <!-- iOS standalone -->
@@ -64,11 +65,9 @@
 
   <!-- JS -->
   <script defer src="js/app.js"></script>
-  <!-- Service Worker registration -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .catch(err => console.error('SW error:', err));
+      navigator.serviceWorker.register('/sw.js').catch(err => console.error('SW error:', err));
     }
   </script>
 </body>
