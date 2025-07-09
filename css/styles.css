@@ -263,3 +263,83 @@ body {
 @supports (padding: max(0px)) {
   .bottom-nav { padding-bottom: max(env(safe-area-inset-bottom), 8px); }
 }
+/* ----- profile page ----- */
+.sub-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 8px;
+}
+
+.back {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: var(--red);
+  cursor: pointer;
+}
+
+.profile-hero {
+  text-align: left;
+  padding: 16px 20px 24px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #4b5563;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.customer-id {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: var(--radius);
+  padding: 6px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 0 20px 24px;
+}
+
+.quick-links .card {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 24px 8px;
+}
+
+.settings h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.settings ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 15px;
+  color: var(--navy);
+}
