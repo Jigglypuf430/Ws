@@ -1,3 +1,4 @@
+/* ---------- colour & metric tokens ---------- */
 :root {
   --red: #c70022;
   --navy: #0e1539;
@@ -5,10 +6,10 @@
   --text-dark: #101727;
   --text-light: #6b7280;
   --radius: 12px;
-  --nav-height: 64px;
+  --nav-h: 64px;
 }
 
-/* ---------- global reset ---------- */
+/* ---------- reset / base ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,18 +18,17 @@
     Arial, sans-serif;
 }
 
-/* ---------- layout helpers ---------- */
 body {
   background: #f4f4f5;
   color: var(--text-dark);
-  padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom));
 }
 
 .safe-top {
   height: env(safe-area-inset-top);
 }
 
-/* ---------- hero / header ---------- */
+/* ---------- hero header ---------- */
 .hero.gradient {
   background: linear-gradient(
     -45deg,
@@ -55,6 +55,7 @@ body {
   font-weight: 700;
 }
 
+/* ---------- header buttons ---------- */
 .actions {
   display: flex;
   gap: 12px;
@@ -70,7 +71,13 @@ body {
   border: 2px solid #fff;
   border-radius: 9999px;
   padding: 4px 12px;
+  cursor: pointer;
   position: relative;
+}
+
+.circle {
+  padding: 6px;
+  border-radius: 50%;
 }
 
 .pill .dot {
@@ -81,11 +88,6 @@ body {
   position: absolute;
   top: -2px;
   right: -2px;
-}
-
-.circle {
-  padding: 6px;
-  border-radius: 50%;
 }
 
 .icon {
@@ -116,15 +118,13 @@ body {
   flex: 1;
   border: none;
   font-size: 16px;
-  outline: none;
   background: transparent;
+  outline: none;
 }
 
 .mic-btn {
   background: transparent;
   border: none;
-  display: flex;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -219,17 +219,8 @@ body {
   overflow: hidden;
 }
 
-.bar {
-  height: 100%;
-}
-
-.bar.expense {
-  background: var(--purple);
-}
-
-.bar.income {
-  background: #a3a3a3;
-}
+.bar.expense { background: var(--purple); }
+.bar.income  { background: #a3a3a3; }
 
 /* ---------- bottom nav ---------- */
 .bottom-nav {
@@ -237,7 +228,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-height);
+  height: var(--nav-h);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -260,28 +251,15 @@ body {
   cursor: pointer;
 }
 
-.nav-item .icon {
-  width: 22px;
-  height: 22px;
-}
+.nav-item .icon { width: 22px; height: 22px; }
 
-.nav-item.active {
-  color: var(--red);
-}
+.nav-item.active { color: var(--red); }
 
-/* ---------- page switching ---------- */
-.page {
-  display: none;
-  padding-top: 20px;
-}
+/* ---------- page visibility ---------- */
+.page { display: none; padding-top: 20px; }
+.page.active { display: block; }
 
-.page.active {
-  display: block;
-}
-
-/* ---------- safe-area tweak (iOS) ---------- */
+/* ---------- iOS safe-area tweak ---------- */
 @supports (padding: max(0px)) {
-  .bottom-nav {
-    padding-bottom: max(env(safe-area-inset-bottom), 8px);
-  }
+  .bottom-nav { padding-bottom: max(env(safe-area-inset-bottom), 8px); }
 }
