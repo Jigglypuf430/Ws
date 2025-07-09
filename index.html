@@ -1,87 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Secure Banking</title>
-
-  <!-- Standalone PWA -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="SecureBank">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- Manifest -->
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#e60022">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header class="header">
-    <div class="logo-container">
-      <img src="logo.png" alt="SecureBank Logo" class="logo">
-    </div>
-    <div class="header-controls">
-      <button id="supportBtn" class="icon-btn" aria-label="Customer Support">
-        <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
-          <path d="M4 4h16v12H5.17L4 17.17V4zm2 2v8h12V6H6z"/>
-        </svg>
-      </button>
-      <button id="openAccount" class="icon-btn" aria-label="Account Details">
-        <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">
-          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-        </svg>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <!-- Tools & Stats -->
-    <section id="tools" class="screen screen--active">
-      <div class="stats-container">
-        <div class="stat-card">
-          Cash Flow<br><strong>$168.80</strong>
-        </div>
-        <div class="stat-card">
-          Monthly Budget<br><strong>$250</strong>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Westpac PWA Clone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <header class="hero gradient">
+      <div class="safe-top"></div>
+      <div class="hero__row">
+        <h1 class="greeting">Hi Callum</h1>
+        <div class="actions">
+          <button id="contactBtn" class="pill">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 1a11 11 0 1 0 11 11A11.012 11.012 0 0 0 12 1Zm5.914 16.672-1.4 1.636a2.568 2.568 0 0 1-2 .918 8.449 8.449 0 0 1-3.814-.964 8.555 8.555 0 0 1-3.11-2.55 8.46 8.46 0 0 1-1.625-3.395 2.555 2.555 0 0 1 .6-2.313l1.4-1.637a1.265 1.265 0 0 1 1.925-.073l1.518 1.532a1.265 1.265 0 0 1-.073 1.83l-.9.9a.382.382 0 0 0-.1.38 5.83 5.83 0 0 0 1.147 2.243 5.963 5.963 0 0 0 2.23 1.618.381.381 0 0 0 .383-.098l.9-.9a1.265 1.265 0 0 1 1.83-.073l1.518 1.532a1.265 1.265 0 0 1-.073 1.83Z" />
+            </svg>
+            <span>Contact us</span>
+            <span class="dot"></span>
+          </button>
+          <button id="profileBtn" class="circle">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5Z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="tools">
-        <button id="btnAccounts" class="tool-card">Accounts</button>
-        <button class="tool-card tool-card--inactive">Payments</button>
-        <button class="tool-card tool-card--inactive">Transfers</button>
+      <h2 class="headline">HOW CAN WE HELP YOU THIS AFTERNOON?</h2>
+      <div class="search">
+        <svg class="icon search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 20.29 15.71 15a8 8 0 1 0-1.41 1.41L20.29 21ZM4 10a6 6 0 1 1 6 6 6.007 6.007 0 0 1-6-6Z"></path>
+        </svg>
+        <input type="search" placeholder="Try 'Budget Planner'" aria-label="Search" />
+        <button id="micBtn" class="mic-btn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0Z" />
+            <path d="M19 15h-2.08a6.94 6.94 0 0 1-2.04 3.05 7 7 0 0 1-9.76 0 6.94 6.94 0 0 1-2.04-3.05H5a9 9 0 0 0 14 0Z" />
+          </svg>
+        </button>
       </div>
-    </section>
+    </header>
 
-    <!-- Account Details -->
-    <section id="account" class="screen" aria-hidden="true">
-      <button id="backBtn" class="back-btn" aria-label="Back to tools">← Back</button>
-      <div class="account-details">
-        <h2>Jordan Saunders</h2>
-        <p><strong>Balance:</strong> $928.48</p>
-        <p><strong>Account Number:</strong> 52864235</p>
-        <p><strong>Account Type:</strong> Savings</p>
-        <p><strong>Email:</strong> jordysau07@gmail.com</p>
-      </div>
-    </section>
-  </main>
+    <main id="home" class="page active">
+      <section class="favourites">
+        <div class="section-header">
+          <h3>Favourite accounts</h3>
+          <a href="#" class="link">All accounts</a>
+        </div>
+        <div class="card blank">
+          <p>Choose the accounts you’d like to see on your Home screen</p>
+          <button class="btn-primary">Show your accounts</button>
+        </div>
+      </section>
 
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" data-screen="tools">Accounts</button>
-    <button class="nav-btn" data-screen="payments">Payments</button>
-    <button class="nav-btn" data-screen="transfers">Transfers</button>
-  </nav>
+      <section class="money-tools">
+        <div class="section-header">
+          <h3>Money tools</h3>
+          <a href="#" class="link">See all</a>
+        </div>
+        <div class="grid">
+          <div class="tool card">
+            <p class="tool-label">CASH FLOW</p>
+            <p class="tool-value negative">-<span>$12.95</span></p>
+            <p class="subtext">Since 01 Jul from All accounts</p>
+            <div class="bar-wrap">
+              <div class="bar expense" style="width: 100%"></div>
+              <div class="bar income" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="tool card">
+            <p class="tool-label">CATEGORIES</p>
+            <p class="tool-value negative">-<span>$12.95</span></p>
+            <p class="subheading">Hobbies &amp; Entertainment</p>
+            <p class="subtext">Since 01 Jul from All accounts</p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <!-- Scripts -->
-  <script defer src="js/app.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(console.error);
-    }
-  </script>
-</body>
+    <main id="accounts" class="page">Accounts page coming soon…</main>
+    <main id="payments" class="page">Payments page coming soon…</main>
+    <main id="insights" class="page">Insights page coming soon…</main>
+    <main id="more" class="page">More page coming soon…</main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-target="home">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V15H9v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z" />
+        </svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-target="accounts">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 3h18v6H3Zm0 7h18v6H3Zm0 7h18v4H3Z" />
+        </svg>
+        <span>Accounts</span>
+      </button>
+      <button class="nav-item" data-target="payments">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 2 7l10 5 10-5Zm0 11 10-5v11l-10 5-10-5V8Z" />
+        </svg>
+        <span>Payments</span>
+      </button>
+      <button class="nav-item" data-target="insights">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z" />
+        </svg>
+        <span>Insights</span>
+      </button>
+      <button class="nav-item" data-target="more">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 3h7v7H3Zm11 0h7v7h-7ZM3 14h7v7H3Zm11 0h7v7h-7Z" />
+        </svg>
+        <span>More</span>
+      </button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
 </html>

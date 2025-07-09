@@ -1,62 +1,45 @@
-// js/app.js
-
-// Grab screen containers
-const toolsSec    = document.getElementById('tools');
-const accountSec  = document.getElementById('account');
-
-// Grab buttons
-const openAccount = document.getElementById('openAccount');
-const btnAccounts = document.getElementById('btnAccounts');
-const backBtn     = document.getElementById('backBtn');
-const supportBtn  = document.getElementById('supportBtn');
-const navButtons  = document.querySelectorAll('.nav-btn');
-
-/**
- * Show one screen (tools or account) and hide the other
- * @param {'tools'|'account'} screenId
- */
-function showScreen(screenId) {
-  if (screenId === 'account') {
-    toolsSec.classList.remove('screen--active');
-    toolsSec.setAttribute('aria-hidden', 'true');
-    accountSec.classList.add('screen--active');
-    accountSec.removeAttribute('aria-hidden');
-  } else {
-    accountSec.classList.remove('screen--active');
-    accountSec.setAttribute('aria-hidden', 'true');
-    toolsSec.classList.add('screen--active');
-    toolsSec.removeAttribute('aria-hidden');
-  }
-}
-
-// === Account Details toggles ===
-// Top‐right icon
-openAccount.addEventListener('click', () => showScreen('account'));
-// “Accounts” card
-btnAccounts.addEventListener('click', () => showScreen('account'));
-// Back button
-backBtn.addEventListener('click', () => showScreen('tools'));
-
-// === Customer Support button ===
-supportBtn.addEventListener('click', () => {
-  // Replace with your real support URL/modal
-  alert('Redirecting to customer support…');
-  // e.g. window.location.href = '/support.html';
-});
-
-// === Bottom navigation bar ===
-navButtons.forEach(btn => {
+// ---------- bottom-nav routing ----------
+document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
-    // Toggle active state
-    document.querySelector('.nav-btn.active').classList.remove('active');
+    // change active state on nav buttons
+    document
+      .querySelectorAll('.nav-item')
+      .forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    const target = btn.dataset.screen;
-    if (target === 'tools') {
-      showScreen('tools');
-    } else {
-      // Stub for future tabs
-      alert(`${btn.textContent.trim()} coming soon!`);
-    }
+    // swap visible page
+    const target = btn.dataset.target;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(target).classList.add('active');
   });
 });
+
+// ---------- dynamic greeting ----------
+function updateGreeting() {
+  const hour = new Date().getHours();
+  const headline = document.querySelector('.headline');
+  const msg =
+    hour < 12
+      ? 'HOW CAN WE HELP YOU THIS MORNING?'
+      : hour < 17
+      ? 'HOW CAN WE HELP YOU THIS AFTERNOON?'
+      : 'HOW CAN WE HELP YOU THIS EVENING?';
+  headline.textContent = msg;
+}
+updateGreeting();
+
+// ---------- stub buttons ----------
+document.getElementById('contactBtn')?.addEventListener('click', () =>
+  alert('Contact-us screen coming soon…')
+);
+
+document.getElementById('micBtn')?.addEventListener('click', () =>
+  alert('Voice input not implemented in this demo.')
+);
+
+// service-worker registration (optional – comment out if you already have it elsewhere)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(err =>
+    console.error('SW registration failed:', err)
+  );
+}
